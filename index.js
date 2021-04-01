@@ -1,61 +1,39 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const {Datastore} = require('@google-cloud/datastore');
 require('@google-cloud/debug-agent').start({ allowExpressions: true });
-const { v4: uuidv4 } = require('uuid');
 
 app.use(bodyParser.json());
 
 const port = process.env.PORT || 8080;
-
-const datastore = new Datastore();
-
 app.listen(port, () => {
   console.log('Listening on port', port);
 });
 
 app.get('/', async (req, res) => {
-    console.log(`Out Of Stock Service: health check`);
-    res.status(200).send('OK');
+    console.log(`Email Service: health check`);
+    res.status(200).send('Health check..');
 })
 
-app.post('/', async (req, res) => 
-{
-  const notification = req.body;
-  console.log(`Request ${notification}`)
+app.post('/', async (req, res) => {
+  const notification = decodeBase64Json(req.body.message.data);
   try 
   {
-    console.log(`Out of stock report ${notification.product.id}`);
-    saveNotification(notification.product);
-    console.log(`Out of stock notification saved ${notification.product.id}`);
-    res.status(200).send();
+    console.log(`Email Service: Report ${notification.id} trying...`);
+    sendEmail();
+    console.log(`Email Service: Report ${notification.id} success :-)`);
+    res.status(204).send();
   }
   catch (ex) {
-    console.log(`Out of stock notification error ${notification.product.id} failure: ${ex}`);
+    console.log(`Email Service: Report ${notification.id} failure: ${ex}`);
     res.status(500).send();
   }
 })
 
-function saveNotification(product) 
-{
-  console.log('Saving notification');
+function decodeBase64Json(data) {
+  return JSON.parse(Buffer.from(data, 'base64').toString());
+}
 
-  var id = uuidv4();
-
-  const kind = 'notification';
-
-  // The Cloud Datastore key for the new entity
-  const notificationKey = datastore.key([kind, id]);
-
-  const notification = {
-      key: notificationKey,
-      data: 
-      {
-        product: product
-      },
-    };
-    // [END datastore_entity_with_parent]
-
-    return datastore.save(notification);
+function sendEmail() {
+  console.log('Sending email');
 }
