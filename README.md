@@ -1,6 +1,6 @@
 # Email Service POC in NodeJS
 
-This code is used in the article [How to build microservices on Google Cloud Platform and App Engine I](https://around25.com/blog/how-to-build-microservices-on-google-cloud-platform-and-app-engine-i/).
+This code is used in the article [How to build microservices on Google Cloud Platform and App Engine](https://around25.com/blog/how-to-build-microservices-on-google-cloud-platform-and-app-engine-i/).
 
 In this series of articles I will share my own experience working with microservices on Google Cloud Platform, the different options that we have, pros, cons and limitations of each of the services in GCP, today we’ll focus on App Engine.
 
@@ -17,4 +17,7 @@ This code is very simple and will only deploy a service able to get notification
 
 You will see the health check in your browser.
 
-
+## Complete series
+1. [How to build microservices on Google Cloud Platform and App Engine](https://around25.com/blog/how-to-build-microservices-on-google-cloud-platform-and-app-engine-i/)
+1. [How to troubleshoot microservices on Google Cloud Platform and App Engine](https://around25.com/blog/how-to-build-microservices-on-google-cloud-platform-and-app-engine-ii-troubleshooting-your-microservices/)
+1. How to manage microservices security on Google Cloud Platform and App Engine
