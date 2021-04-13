@@ -20,4 +20,4 @@ You will see the health check in your browser.
 ## Complete series
 1. [How to build microservices on Google Cloud Platform and App Engine](https://around25.com/blog/how-to-build-microservices-on-google-cloud-platform-and-app-engine-i/)
 1. [How to troubleshoot microservices on Google Cloud Platform and App Engine](https://around25.com/blog/how-to-build-microservices-on-google-cloud-platform-and-app-engine-ii-troubleshooting-your-microservices/)
-1. How to manage microservices security on Google Cloud Platform and App Engine
+1. [How to manage microservices security on Google Cloud Platform and App Engine](https://around25.com/blog/how-to-build-microservices-on-google-cloud-platform-and-app-engine-part-iii-security/)
